@@ -1,0 +1,32 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "NodeJS Training",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node .",
+    "build": "babel ./src --out-dir ./dist",
+    "build:prod": "NODE_ENV=production babel ./src --minified --out-file ./dist/index.js",
+    "dev": "nodemon --exec babel-node ./src",
+    "test": "jest",
+    "prettier": "prettier \"**/*.{js,json}\" --check",
+    "prettier:fix": "npm run prettier -- --write"
+  },
+  "author": "dannegm",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "nanoid": "^3.1.22"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.13.14",
+    "@babel/core": "^7.13.14",
+    "@babel/node": "^7.13.13",
+    "@babel/preset-env": "^7.13.12",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "babel-preset-minify": "^0.5.1",
+    "jest": "^26.6.3",
+    "nodemon": "^2.0.7",
+    "prettier": "^2.2.1"
+  }
+}
