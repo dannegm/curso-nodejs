@@ -1,0 +1,31 @@
+version: '3.8'
+services:
+  mysqldb:
+    image: mysql
+    restart: always
+    env_file: ./.env
+    environment:
+      MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
+      MYSQL_DATABASE: $MYSQL_DATABASE
+    ports:
+      - 3306:3306
+    volumes:
+      - mysql-config:/etc/mysql
+      - mysql-data:/var/lib/mysql
+
+  mongodb:
+    image: mongo:latest
+    restart: always
+    env_file: ./.env
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: $MONGO_ROOT_PASSWORD
+      MONGO_INITDB_ROOT_PASSWORD: $MONGO_DATABASE
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb-data:/data/db
+
+volumes:
+  mysql-config:
+  mysql-data:
+  mongodb-data:
