@@ -1,6 +1,5 @@
 /node_modules
 /dist
-/data/*
-!/data
-!/data/.gitkeep
+/.docker/mongodb/data
+/.docker/mysql/data
 .env
