@@ -156,6 +156,7 @@ const userController = {
     res.status(200).json(userCollection[uid]);
   },
 
+  // Eliminar usuario
   DELETE(req, res) {
     const uid = req.query.get('uid');
 
