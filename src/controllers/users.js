@@ -1,8 +1,6 @@
 import UserModel from '../models/users';
 
-const UserModel = require('../models/users');
-
-const listAllUsers = (req, res) => {
+export const listAllUsers = (req, res) => {
   res.json({
     data: {
       message: 'Hola a todos los usuarios',
@@ -10,7 +8,7 @@ const listAllUsers = (req, res) => {
   });
 };
 
-const createUser = async (req, res) => {
+export const createUser = async (req, res) => {
   const defaultUser = {
     name: 'default',
     email: 'default@mail.com',
@@ -37,8 +35,3 @@ const createUser = async (req, res) => {
     });
   }
 };
-
-module.exports = {
-  listAllUsers,
-  createUser
-}

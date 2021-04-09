@@ -19,17 +19,14 @@ mongoose.connect( uriScheme, mongoConfig);
 const app = express();
 
 app
-  .use(cors({
-    origin: '*',
-    optionsSuccessStatus: 200
-  }))
-  .use(morgan('combined'))
-  .use(helmet.hidePoweredBy())
+  .use(cors())
+  .use(morgan('tiny'))
+  .use(helmet())
   .use (json ())
   .use (urlencoded ({ extended: false }))
   .use(
     session({
-      secret: process.env.SECRET,
+      secret: process.env.APP_SECRET,
       resave: true,
       saveUninitialized: true,
     })
