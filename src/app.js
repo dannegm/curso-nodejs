@@ -5,7 +5,7 @@ import registerRoutes from './routes';
 const server = (app) => {
   registerRoutes(app);
 
-  const PORT = process.env.APP_PORT || 3000;
+  const PORT = process.env.PORT || 3000;
 
   console.log(`Tu servidor ha iniciado en el puerto ${PORT}`);
   app.listen(PORT);
