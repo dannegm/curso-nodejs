@@ -1,0 +1,29 @@
+<h1>Cliente</h1>
+<script>
+    const func = async () => {
+        const credenciales = {
+            email: 'janisimo@dwtraining.com',
+            password: 'supersecret1234',
+        };
+
+        const loginRequest = fetch('http://localhost:3000/login', credenciales, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
+        })
+
+        const token = (await loginRequest.json()).data.token
+
+        localStorage.setItem('sessionToken', token)
+
+        const perfilRequest = fetch('http://localhost:3000/user', {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('sessionToken')}`
+            }
+        });
+
+        const user = await (perfilRequest.json()).data;
+    }
+    func();
+</script>
