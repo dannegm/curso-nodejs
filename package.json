@@ -1,17 +1,17 @@
 {
-  "name": "nodejs",
+  "name": "dwtraining-nodejs",
   "version": "1.0.0",
   "description": "NodeJS Training",
   "main": "src/index.js",
   "scripts": {
     "start": "node .",
     "dev": "nodemon --exec babel-node ./src",
-    "prod": "NODE_ENV=production pm2 start src --interpreter babel-node",
+    "prod": "NODE_ENV=production pm2-runtime ./src --interpreter babel-node",
     "test": "jest",
     "prettier": "prettier \"**/*.{js,json}\" --check",
     "prettier:fix": "npm run prettier -- --write",
     "docker:build": "docker build -t dwtraining-image ./",
-    "docker:start": "docker run --rm -p 3000:80 --name=dwtraining-container dwtraining-image",
+    "docker:start": "docker run --rm -p 3000:80 --env-file ./.env --name=dwtraining-container dwtraining-image",
     "docker:stop": "docker stop dwtraining-container",
     "docker:exec": "docker exec -it dwtraining-container bash"
   },

@@ -1,0 +1,9 @@
+{
+  "name": "dwtraining-nodejs",
+  "script": "src/index.js",
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "autorestart": true,
+  "interpreter": "./node_modules/@babel/cli/bin/babel.js"
+}
