@@ -16,7 +16,3 @@ jobs:
           heroku_app_name: ${{secrets.HEROKU_APP_NAME}} #Must be unique in Heroku
           heroku_email: ${{secrets.HEROKU_EMAIL}}
           usedocker: true
-        env:
-          NODE_ENV: production
-          APP_SECRET: ${{ secrets.APP_SECRET }}
-          MONGO_URI_SCHEME: ${{ secrets.MONGO_URI_SCHEME }}
