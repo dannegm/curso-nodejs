@@ -11,7 +11,7 @@
     "prettier": "prettier \"**/*.{js,json}\" --check",
     "prettier:fix": "npm run prettier -- --write",
     "docker:build": "docker build -t dwtraining-image ./",
-    "docker:start": "docker run --rm -p 3000:80 --env-file ./.env --name=dwtraining-container dwtraining-image",
+    "docker:start": "docker run --rm -p 3000:3000 --env-file ./.env --name=dwtraining-container dwtraining-image",
     "docker:stop": "docker stop dwtraining-container",
     "docker:exec": "docker exec -it dwtraining-container bash"
   },
