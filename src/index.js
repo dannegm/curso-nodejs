@@ -8,6 +8,9 @@ import { json, urlencoded } from 'body-parser'
 import mongoose from 'mongoose';
 import session from 'express-session';
 
+import socketio from 'socket.io';
+import { createServer } from 'http'
+
 import { mongoConfig } from './config/settings'
 import server from './app'
 
@@ -32,8 +35,11 @@ app
     })
   )
 
+const httpServer = createServer(app);
+const io = socketio(httpServer)
+
 const run = () => {
-  server( app )
+  server( app, io )
 }
 
 run()

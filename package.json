@@ -7,13 +7,13 @@
     "start": "node .",
     "dev": "nodemon --exec babel-node ./src",
     "prod": "NODE_ENV=production pm2-runtime ./src --interpreter babel-node",
-    "test": "jest",
     "prettier": "prettier \"**/*.{js,json}\" --check",
     "prettier:fix": "npm run prettier -- --write",
     "docker:build": "docker build -t dwtraining-image ./",
     "docker:start": "docker run --rm -p 3000:3000 --env-file ./.env --name=dwtraining-container dwtraining-image",
     "docker:stop": "docker stop dwtraining-container",
-    "docker:exec": "docker exec -it dwtraining-container bash"
+    "docker:exec": "docker exec -it dwtraining-container bash",
+    "test": "jest"
   },
   "author": "dannegm",
   "license": "ISC",
@@ -30,7 +30,8 @@
     "lodash": "^4.17.21",
     "mongoose": "^5.12.3",
     "morgan": "^1.10.0",
-    "nanoid": "^3.1.22"
+    "nanoid": "^3.1.22",
+    "socket.io": "^4.0.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.13.14",

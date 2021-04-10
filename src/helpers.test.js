@@ -1,4 +1,4 @@
-import { sum } from './helpers';
+import { sum, isMax } from './helpers';
 
 describe('Helpers', () => {
   describe('sum', () => {
@@ -16,5 +16,23 @@ describe('Helpers', () => {
       const result = sum(...[5, 5, 5]);
       expect(result).toBe(15);
     });
+  });
+
+  describe('isMax', () => {
+    it('should alows just numbers', () => {
+      const resultWIthNums = isMax([ 1, 2, 3, 4 ]);
+      expect(typeof resultWIthNums).toBe('number');
+
+      const resultWIthString = isMax([ 'a', 2, 3, 4 ]);
+      expect(resultWIthString).toBe('Invalid data');
+    });
+
+    it('show return the max value', () => {
+      const result1 = isMax([ 1, 2, 3, 4 ]);
+      expect(result1).toBe(4);
+
+      const result2 = isMax([ 1, 6, 3, 4 ]);
+      expect(result2).toBe(6);
+    })
   });
 });
