@@ -3,3 +3,4 @@
 /.docker/mongodb/data
 /.docker/mysql/data
 .env
+database.json
