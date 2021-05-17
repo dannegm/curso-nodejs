@@ -8,15 +8,11 @@ import { json, urlencoded } from 'body-parser'
 import mongoose from 'mongoose';
 import session from 'express-session';
 
-import socketio from 'socket.io';
-import { createServer } from 'http'
-
 import { mongoConfig } from './config/settings'
 import server from './app'
 
 const uriScheme = process.env.MONGO_URI_SCHEME
 
-console.log(uriScheme)
 mongoose.connect( uriScheme, mongoConfig);
 
 const app = express();
@@ -35,11 +31,8 @@ app
     })
   )
 
-const httpServer = createServer(app);
-const io = socketio(httpServer)
-
 const run = () => {
-  server( app, io )
+  server( app )
 }
 
 run()
